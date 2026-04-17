@@ -1,0 +1,92 @@
+CREATE DATABASE urangkita_db
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+
+    avatar_url VARCHAR(255) DEFAULT NULL,
+    role ENUM('admin', 'user') DEFAULT 'user',
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE topics (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    category_id INT,
+
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    views INT DEFAULT 0,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
+    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
+);
+
+CREATE TABLE comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    topic_id INT,
+    user_id INT,
+
+    content TEXT NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+CREATE TABLE report_user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    reporter_id INT,
+    reported_id INT,
+
+    reason TEXT NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (reporter_id) REFERENCES users(id) ON DELETE SET NULL,
+    FOREIGN KEY (reported_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE report_topic (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    reporter_id INT,
+    topic_id INT,
+
+    reason TEXT NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (reporter_id) REFERENCES users(id) ON DELETE SET NULL,
+    FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE
+);
+
+CREATE TABLE report_comment (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    reporter_id INT,
+    topic_id INT,
+    comment_id INT,
+
+    reason TEXT NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (reporter_id) REFERENCES users(id) ON DELETE SET NULL,
+    FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE,
+    FOREIGN KEY (comment_id) REFERENCES comments(id) ON DELETE CASCADE
+);
