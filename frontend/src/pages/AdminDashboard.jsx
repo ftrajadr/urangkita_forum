@@ -82,8 +82,13 @@ function AdminDashboardContainer() {
                     <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-gray-100 text-navy/40">
                         {badge}
                     </div>
+<<<<<<< HEAD
                     <div>
                         <h1 className='text-sm font-black text-navy leading-tight'>{title}</h1>
+=======
+                    <div className='max-w-xs'>
+                        <h1 className='text-sm font-black text-navy leading-tight truncate'>{title}</h1>
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
                         <p className='text-[10px] font-bold text-terracotta uppercase tracking-wider'>{subTitle}</p>
                     </div>
                 </div>
@@ -112,7 +117,11 @@ function AdminDashboardContainer() {
                     <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-navy/20"></div>
                         <p className="text-[11px] font-bold text-navy/60">
+<<<<<<< HEAD
                             Oleh: <span className="text-navy font-black">@{reporter}</span>
+=======
+                            Pelapor: <span className="text-navy font-black">@{reporter}</span>
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
                         </p>
                     </div>
                     <div className="flex items-center gap-2 text-gray-400">

@@ -1,6 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+<<<<<<< HEAD
 import { Clock, MessageSquare, ArrowLeft, Send, ChevronLeft, ChevronRight, Trash2, User, FilePen } from "lucide-react";
+=======
+import { Clock, MessageSquare, ArrowLeft, Send, ChevronLeft, ChevronRight, Trash2, User, FilePen, TriangleAlert } from "lucide-react";
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
 import api from "../api/api";
 import { useAuth } from "../context/AuthContext";
 
@@ -82,7 +86,11 @@ function TopicDetailContainer() {
     };
 
     const handleGoToProfile = (userId) => {
+<<<<<<< HEAD
         if (user.id === topic.user_id) {
+=======
+        if (user?.id === userId) {
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
             navigate('/profile');
         } else {
             navigate(`/user/${userId}`);
@@ -103,7 +111,11 @@ function TopicDetailContainer() {
 
     return (
         <main className="flex-1 pt-20 pb-20 px-4 max-w-2xl mx-auto w-full">
+<<<<<<< HEAD
             <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-navy/40 font-bold text-[10px] uppercase tracking-[0.2em] mb-4 hover:text-terracotta transition-colors">
+=======
+            <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-navy/40 font-bold text-[10px] uppercase tracking-[0.2em] mb-4 hover:text-terracotta transition-colors hover:cursor-pointer">
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
                 <ArrowLeft size={16} /> Kembali
             </button>
 
@@ -140,6 +152,14 @@ function TopicDetailContainer() {
                                 <Trash2 size={18} />
                             </button>
                         )}
+<<<<<<< HEAD
+=======
+                        {user && (
+                            <Link to={`/topic/${id}/report`} className="p-2 text-gray-300 hover:text-red-600 transition-colors">
+                                <TriangleAlert size={18} />
+                            </Link>
+                        )}
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
                     </div>
                 </div>
                 <h1 className="text-2xl font-black text-navy mb-4 leading-tight break-words">{topic?.title}</h1>
@@ -193,7 +213,11 @@ function TopicDetailContainer() {
                                                 {c.username?.[0].toUpperCase()}
                                             </div>
                                             <div className='flex flex-col'>
+<<<<<<< HEAD
                                                 <p className="text-xs font-bold text-navy">@{c.username}</p>
+=======
+                                                <div onClick={() => handleGoToProfile(c.user_id)} className="text-xs font-bold text-navy hover:text-terracotta hover:cursor-pointer">@{c.username}</div>
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
                                                 <div className="flex gap-1 items-center font-bold">
                                                     <Clock size={10} className="text-gray-400" />
                                                     <p className="text-[10px] text-gray-400">{new Date(c.created_at).toLocaleDateString('id', { day: '2-digit', month: '2-digit', year: 'numeric' })}</p>
@@ -217,6 +241,14 @@ function TopicDetailContainer() {
                                                     <Trash2 size={14} />
                                                 </button>
                                             )}
+<<<<<<< HEAD
+=======
+                                            {user && (
+                                                <Link to={`/topic/${id}/comment/${c.id}/report`} className="p-2 text-gray-300 hover:text-red-600 transition-colors">
+                                                    <TriangleAlert size={14} />
+                                                </Link>
+                                            )}
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
                                         </div>
                                     </div>
                                     <p className="text-sm text-navy/70 leading-relaxed break-words">{c.content}</p>

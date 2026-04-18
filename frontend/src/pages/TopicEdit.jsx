@@ -65,7 +65,11 @@ function TopicEditContainer() {
             <div className="w-full flex justify-start mb-4">
                 <button 
                     onClick={() => navigate(-1)} 
+<<<<<<< HEAD
                     className="flex items-center gap-2 text-navy/40 font-bold text-[10px] uppercase tracking-[0.2em] hover:text-terracotta transition-colors"
+=======
+                    className="flex items-center gap-2 text-navy/40 font-bold text-[10px] uppercase tracking-[0.2em] hover:text-terracotta transition-colors hover:cursor-pointer"
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
                 >
                     <ArrowLeft size={16} /> Kembali
                 </button>

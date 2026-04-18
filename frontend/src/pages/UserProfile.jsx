@@ -33,6 +33,11 @@ function UserProfileContainer() {
 
     const joinedAtDate = new Date(userProfile.created_at).toLocaleDateString('id', { day: '2-digit', month: 'long', year: 'numeric' });
 
+<<<<<<< HEAD
+=======
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
     return (
          <main className='flex-1 max-w-2xl mx-auto w-full pt-20 px-4 pb-20'>
             <div className='bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-50 mb-6'>

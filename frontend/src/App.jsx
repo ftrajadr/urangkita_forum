@@ -13,6 +13,11 @@ import TopicEditContainer from './pages/TopicEdit';
 import CommentEditContainer from './pages/CommentEdit';
 import UserProfileContainer from './pages/UserProfile';
 import AdminDashboardContainer from './pages/AdminDashboard';
+<<<<<<< HEAD
+=======
+import TopicReportContainer from './pages/TopicReport';
+import CommentReportContainer from './pages/CommentReport';
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
 
 function App() {
   const { user } = useAuth();
@@ -50,6 +55,11 @@ function App() {
         <Route path='/topic/:id/comment/:cId' element={<CommentEditContainer />} />
         <Route path='/rules' element={<RulesContainer />} />
         <Route path='/Admin' element={<AdminDashboardContainer />} />
+<<<<<<< HEAD
+=======
+        <Route path='/topic/:id/report' element={<TopicReportContainer />} />
+        <Route path='/topic/:tid/comment/:cid/report' element={<CommentReportContainer />} />
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
       </Routes>
 
       <nav className="fixed bottom-0 w-full h-16 bg-white border-t border-gray-100 flex justify-around items-center px-2 z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">

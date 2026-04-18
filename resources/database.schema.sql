@@ -68,12 +68,21 @@ CREATE TABLE report_topic (
     reporter_id INT,
     topic_id INT,
 
+<<<<<<< HEAD
      reason TEXT NOT NULL,
 
      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
      FOREIGN KEY (reporter_id) REFERENCES users(id) ON DELETE SET NULL,
      FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE
+=======
+    reason TEXT NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (reporter_id) REFERENCES users(id) ON DELETE SET NULL,
+    FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE
+>>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
 );
 
 CREATE TABLE report_comment (
