@@ -1,0 +1,1 @@
+Database and Dotenv schema are in "resources" folder.
