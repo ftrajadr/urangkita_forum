@@ -31,15 +31,10 @@ export const getComment = async (req, res) => {
         const { topicId, commentId } = req.params;
         
         const [comments] = await pool.query(`
-<<<<<<< HEAD
-            SELECT * FROM comments
-            WHERE topic_id = ? AND id = ?
-=======
             SELECT c.*, u.username 
             FROM comments c
             LEFT JOIN users u ON c.user_id = u.id
             WHERE c.topic_id = ? AND c.id = ?
->>>>>>> 02508ef0ae30b7bed70e0be89184af90a5b791ef
         `, [topicId, commentId]);
 
         if (comments.length === 0) {
